@@ -2,39 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* ShipHero-inspired Warehouse Management Design System
+Professional blue color palette with modern gradients and shadows
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors */
+    --background: 248 250 252;
+    --foreground: 203 24% 9%;
 
+    /* Card system */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 203 24% 9%;
 
+    /* Popover system */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 203 24% 9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - ShipHero blue theme */
+    --primary: 210 100% 50%;
+    --primary-light: 210 100% 85%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 100% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Professional grays */
+    --secondary: 210 16% 93%;
+    --secondary-foreground: 203 24% 9%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted colors */
+    --muted: 210 16% 96%;
+    --muted-foreground: 215 20% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Action colors */
+    --accent: 142 86% 50%;
+    --accent-light: 142 86% 85%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Status colors */
+    --success: 142 86% 50%;
+    --success-light: 142 86% 85%;
+    --warning: 38 100% 50%;
+    --warning-light: 38 100% 85%;
+    --destructive: 0 84% 60%;
+    --destructive-light: 0 84% 85%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Border and input */
+    --border: 215 20% 88%;
+    --input: 215 20% 88%;
+    --ring: 210 100% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 50%), hsl(210 100% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(210 100% 45%) 50%, hsl(203 24% 9%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 16% 98%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(210 40% 8% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(210 40% 8% / 0.1), 0 2px 4px -2px hsl(210 40% 8% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(210 40% 8% / 0.1), 0 4px 6px -4px hsl(210 40% 8% / 0.1);
+    --shadow-blue: 0 4px 20px -2px hsl(210 100% 50% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
@@ -56,33 +89,51 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode - Professional warehouse environment */
+    --background: 203 24% 9%;
+    --foreground: 210 16% 93%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 203 20% 12%;
+    --card-foreground: 210 16% 93%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 203 20% 12%;
+    --popover-foreground: 210 16% 93%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 210 100% 55%;
+    --primary-light: 210 100% 25%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 100% 60%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 203 15% 18%;
+    --secondary-foreground: 210 16% 93%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 203 15% 15%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 142 86% 55%;
+    --accent-light: 142 86% 25%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --success: 142 86% 55%;
+    --success-light: 142 86% 25%;
+    --warning: 38 100% 55%;
+    --warning-light: 38 100% 25%;
+    --destructive: 0 84% 65%;
+    --destructive-light: 0 84% 25%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 203 15% 18%;
+    --input: 203 15% 18%;
+    --ring: 210 100% 55%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 55%), hsl(210 100% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 100% 55%) 0%, hsl(210 100% 50%) 50%, hsl(203 24% 15%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(203 20% 12%) 0%, hsl(203 15% 15%) 100%);
+
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.15);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.2), 0 2px 4px -2px hsl(0 0% 0% / 0.15);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.25), 0 4px 6px -4px hsl(0 0% 0% / 0.2);
+    --shadow-blue: 0 4px 20px -2px hsl(210 100% 55% / 0.4);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -101,5 +152,64 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+}
+
+@layer components {
+  /* Hero button variant */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-primary-hover text-primary-foreground;
+    @apply hover:shadow-blue transform hover:scale-105 transition-all duration-300;
+  }
+
+  /* Card variants */
+  .card-gradient {
+    background: var(--gradient-card);
+    @apply shadow-md hover:shadow-lg transition-all duration-300;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  /* Warehouse specific styles */
+  .shelf-label {
+    @apply font-mono text-sm bg-secondary px-2 py-1 rounded border;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .status-success {
+    @apply bg-success/10 text-success border border-success/20;
+  }
+
+  .status-warning {
+    @apply bg-warning/10 text-warning border border-warning/20;
+  }
+
+  .status-error {
+    @apply bg-destructive/10 text-destructive border border-destructive/20;
   }
 }
